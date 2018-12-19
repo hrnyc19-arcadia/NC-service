@@ -1,0 +1,37 @@
+{
+  "name": "nc-service",
+  "version": "1.0.0",
+  "description": "Front End Capstone at Hack Reactor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrnyc19-arcadia/NC-service.git"
+  },
+  "author": "Nuno Correia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrnyc19-arcadia/NC-service/issues"
+  },
+  "homepage": "https://github.com/hrnyc19-arcadia/NC-service#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "axios": "^0.18.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.5.7",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "chai": "^3.5.0",
+    "chai-things": "^0.2.0",
+    "mocha": "^3.0.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^1.13.2",
+    "babel-core": "^6.17.0"
+  }
+}
