@@ -4,16 +4,16 @@ const Review = require('./db/schema');
 
 
 
-module.exports.getReviews=function(listingId,callback){
-    console.log('getReviews called, listindId:',listingId);
+module.exports.getReviews=function(listing_id,callback){
+    console.log('getReviews called, value:',listing_id);
     
     db.connect;
     
-    schema.find({listing_id: listingId},{sort:{date_added:-1}},((err, data)=>{
+    Review.find({'listing_id':listing_id},null,{sort:'-date'},((err, docs)=>{
     if(err) callback(err)
     else{
-        console.log('data retrieved: ',data);
-        callback(null,data);
+        console.log('data retrieved: ',docs);
+        callback(null,docs);
     }
 }))
 }

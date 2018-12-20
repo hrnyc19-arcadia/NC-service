@@ -35,9 +35,10 @@ hweugGodkNFzr1feOijmp2XDkJWQLjprykpuSNQHKKO8C58NNoma7brdCi4bzK2Q
   github_app_name: 'fullstackReview',
   homepage_url: 'https://github.com/NCorreia100/hrnyc19-fullstack-review'
 },
-server={
+local={
     WEBAPI_PORT: 3004,
-    DB_PORT: 27016
+    DB_PORT: 27016,
+    DB_URI :'mongodb://localhost:27016/flairbnb_reviews'
   } 
 
 }
