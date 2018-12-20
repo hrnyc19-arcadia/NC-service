@@ -2,7 +2,7 @@ const goose = require('mongoose');
 const Schema = require('mongoose').Schema;
 
 const reviewSchema = new Schema ({
-    _id: Object,          //in case the user updates it it has to be provided to the client
+    // _id: Object,          //in case the user updates it it has to be provided to the client
     listing_id: Object,
     username : String,
     date : Date,
@@ -18,4 +18,4 @@ const reviewSchema = new Schema ({
     }
 });
 
-module.exports = goose.model('fairbnb_reviews',reviewSchema);
+module.exports = goose.model('flairbnb_reviews',reviewSchema);

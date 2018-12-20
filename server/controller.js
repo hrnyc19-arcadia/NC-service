@@ -1,6 +1,6 @@
 
 const db = require('./db/config');
-const schema = require('./db/schema');
+const Review = require('./db/schema');
 
 
 
@@ -20,8 +20,10 @@ module.exports.getReviews=function(listingId,callback){
 
 module.exports.storeAMockupReview=function(JSONObj,callback){
 db.connect;
+console.log(JSONObj);
 
-let newReview = {                 
+let newReview = new Review({ 
+    // _id =  JSONObj._id,         
     listing_id: JSONObj.listingId,
     username : JSONObj.user.name,
     date : JSONObj.user.date,
@@ -31,17 +33,19 @@ let newReview = {
         accuracy: JSONObj.ratings.accuracy,
         communication: JSONObj.ratings.communication,
         cleanliness: JSONObj.ratings.cleanliness,
-        location: JSONObj.ratings.lication,
+        location: JSONObj.ratings.location,
         checkin: JSONObj.ratings.checkin,
         value: JSONObj.ratings.value
     }               
-}
+});
+// delete newReview._id;
 if(newReview.flagged===null) newReview.flagged = false;
+try{
 
-schema.findOneAndUpdate({_id:JSONObj.id},newReview,{upsert:true},(data=>{
+callback(null,newReview.save());
+}catch(exception){
+    console.log(exception);
+    callback(excetion);
+}
 
-    console.log('stored! :',data);
-    callback(null,data);
-
-}));
 };
