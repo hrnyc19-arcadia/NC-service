@@ -9,7 +9,7 @@ module.exports.getReviews=function(listing_id,callback){
     
     db.connect;
     
-    Review.find({'listing_id':listing_id},null,{sort:'-date'},((err, docs)=>{
+    Review.find({'listing_id':listing_id,/*flagged:false*/},null,{sort:'-date'},((err, docs)=>{
     if(err) callback(err)
     else{
         console.log('data retrieved: ',docs);
@@ -47,5 +47,4 @@ callback(null,newReview.save());
     console.log(exception);
     callback(excetion);
 }
-
 };
