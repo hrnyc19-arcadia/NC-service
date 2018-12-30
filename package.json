@@ -5,13 +5,32 @@
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.2"
+    "react-scripts": "2.1.2",
+"express": "^4.14.0",
+"jquery": "^3.3.1",
+ "mongoose": "^4.5.7",
+    "nodemon": "^1.11.0",
+"popper": "^1.0.1"
+  },
+ "devDependencies": {
+    "webpack-cli": "^3.1.2",
+	 "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+"chai": "^3.5.0",
+    "chai-things": "^0.2.0",
+ "jest": "^23.6.0",
+"mocha": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+	 "test-dev": "jest resources/test.js --notify",
+    "nodemon": "nodemon server/index.js",
+    "webpack": "webpack -d --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
