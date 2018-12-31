@@ -1,7 +1,8 @@
 import React from 'react';
-import ImageLoader from 'react-image-file';
+import {Image,Button,Glyphicon} from 'react-bootstrap';
 
-const fr = new FileReader();
+
+// const fr = new FileReader();
 
 class Review extends React.Component{
     constructor(props){
@@ -21,28 +22,31 @@ class Review extends React.Component{
                 reviewId: id,
                 username: username,                                
                 message: message,
-                photoSrc: null
+                photoSrc:{}
+
         });
         if(message.length>290) this.setState({showAll:false});
         let unformattedDate = new Date(date);
         let month = ['January','February','March','April','May','June','July','August','September','October','November','December'][unformattedDate.getMonth()];
         this.setState({date:`${month}, ${unformattedDate.getFullYear()}`})       
-        // this.props.getUserPhoto(id,  blob=>{
-        //     this.setState({photoSrc: blob})                
-            
-            
-                // fr.readAsDataURL(blob)});
-        // })
+        this.props.getUserPhoto(id,  blob=>{
+            console.log('blob: ',blob)
+            this.setState({photoSrc: blob})                 
+        })
 
     }       
     render(){  
         let {id,username,photoSrc,date,message} = this.state;  
         console.log('username is: ',username)   
     return (
-        <panel id={id}>
-            <ImageLoader alt={`${username} user profile`} file={this.props.getUserPhoto(id)} /> 
-            
-           <div>
+        <div>
+               <div>
+        <a ref="#" id={id} className="imageHolder">
+            <Image circle responsive alt={`${username} user profile`} src={photoSrc} className="userPhoto" />             
+           </a>
+           <a ref='#' className="flag">
+           <Glyphicon glyph="flag" />
+           </a>
             <strong>{username}</strong> 
              <br/>
              {date}
@@ -51,7 +55,7 @@ class Review extends React.Component{
                {this.state.showAll?  message : message.substring(0,280)+"..."}
                {!this.state.showAll? (<a href="#"  onClick={()=>this.setState({showAll:true})} >Read more</a>):null}
             
-        </panel>
+        </div>
     )
     }
 }

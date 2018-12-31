@@ -10,16 +10,28 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
+  // plugins: [
+    
+  //     new webpack.ProvidePlugin({
+  //       $: 'jquery',
+  //       jQuery: 'jquery',
+  //       'window.jQuery': 'jquery',
+  //       Popper: ['popper.js', 'default'],            
+        
+  //     })
+    
+  // ],
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.jsx?/,
         include : SRC_DIR,
         loader : 'babel-loader',      
         query: {
-          presets: ['react', 'es2015']
+          presets: ['@babel/preset-react', '@babel/preset-env']
         }
       }
     ]
-  }
+  },
+  // target: 'node'
 };

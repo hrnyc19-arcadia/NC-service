@@ -25,17 +25,32 @@ app.get('/reviews', (req, res) =>{
     }) 
 });
 
-app.get('/user/photo',(req,res)=>{
+app.get('/user/photo', (req, res) => {
     console.log('photo requested');
-    let randomInt = Math.floor(Math.random()*10)
-    
+    let randomInt = Math.floor(Math.random() * 10)
+
+
+
     let imgFile =  fs.readFileSync(path.join(__dirname,`../resources/photos/${randomInt}.png`));
-    console.log('image to send: ',imgFile);
+    // fs.readFile(
+    //     path.join(__dirname, `../resources/photos/${randomInt}.png`), 'base64',
+    //     (err, base64Image) => {
+    //         if (err) {
+    //             console.log(err)
+    //             res.sendStatus(501);
+    //         } else {
+              
+    //             return res.send(base64Image);
+    //         }
+    //     }
+    // );
     try{
-        // res.sendFile(path.join(__dirname,`../resources/photos/${randomInt}.png`))
-        res.writeHead(200, {'Content-Type': 'image/gif' });
+        // res.send(path.join(__dirname,`../resources/photos/${randomInt}.png`))
+        res.writeHead(200, {'Content-Type': 'image/png' });
         res.end(imgFile, 'binary');
         
+        // res.sendFile(path.join(__dirname,`../resources/photos/${randomInt}.png`))
+        // res.send(JSON.stringify(imagesUrl[randomInt]));
     }catch(exception){
         console.log(exception);
         res.sendStatus(501);

@@ -1,0 +1,38 @@
+/*reviews*/
+
+.reviewItemHolder{
+    padding: 20     px white;
+    border-top: 4px grey; 
+    border-bottom: 5px grey;
+    border-right: none;
+}
+
+
+.userPhoto{
+    max-width:10%;
+    height: auto;
+    float:left;
+    padding: 5px;
+}
+.userPhoto:hoover{
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.flag{
+   float:right;
+   left: 30px;
+}
+
+/*app*/
+.rootDiv{
+    width:50%;     
+}
+
+/*highlights*/
+.tblhighlights{
+    font-size: 15pt;
+    font-family: Arial, Helvetica, sans-serif
+}
+/* .stars{
+overflow:hidden;
+height:'20px';
+} */

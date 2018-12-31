@@ -1,5 +1,6 @@
 import React from 'react';
 import Review from './review.jsx';
+import {Panel} from 'react-bootstrap';
 
 
 class ReviewList extends React.Component{
@@ -8,6 +9,7 @@ class ReviewList extends React.Component{
         this.state={
             reviews: [],
             reviewsQty : 0,
+            reviewsPerPage: 7,
             curPage : 1            
         }
     }
@@ -16,6 +18,8 @@ class ReviewList extends React.Component{
             reviews:this.props.reviews,
             reviewsQty : this.props.reviews.length
         })
+        if(window.screen.availHeight<500) this.setState({reviewsPerPage:5});
+        console.log('height of screen:',window.screen.availHeight);
     }
     render(){
         if(this.state.reviewsQty>0){
@@ -24,7 +28,7 @@ class ReviewList extends React.Component{
                 {
                     this.state.reviews.map(review=>
                         (
-                        <div id={review.id} key={review.id}><Review review={review} getUserPhoto={this.props.getUserPhoto}/></div>
+                        <Panel id={review.id} className="reviewItemHolder" key={review.id}><Review review={review} getUserPhoto={this.props.getUserPhoto}/></Panel>
                         )
                         )
                 }
