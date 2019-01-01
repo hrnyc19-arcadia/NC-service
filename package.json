@@ -37,7 +37,8 @@
     "eject": "react-scripts eject",
     "test-dev": "jest resources/test.js --notify",
     "nodemon": "nodemon server/index.js",
-    "webpack": "webpack -d --watch"
+    "webpack": "webpack -d --watch",
+    "mockdata": "node server/FSdataImport.js"
   },
   "eslintConfig": {
     "extends": "react-app"

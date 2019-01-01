@@ -4,7 +4,6 @@ const path = require('path');
 const controller = require('./controller');
 const fs = require('fs');
 
-
 let port=null;
 if(process.env.HEROKU) port = process.env.HEROKU;
 else port = 3004;
@@ -32,25 +31,10 @@ app.get('/user/photo', (req, res) => {
 
 
     let imgFile =  fs.readFileSync(path.join(__dirname,`../resources/photos/${randomInt}.png`));
-    // fs.readFile(
-    //     path.join(__dirname, `../resources/photos/${randomInt}.png`), 'base64',
-    //     (err, base64Image) => {
-    //         if (err) {
-    //             console.log(err)
-    //             res.sendStatus(501);
-    //         } else {
-              
-    //             return res.send(base64Image);
-    //         }
-    //     }
-    // );
-    try{
-        // res.send(path.join(__dirname,`../resources/photos/${randomInt}.png`))
+    
+    try{      
         res.writeHead(200, {'Content-Type': 'image/png' });
-        res.end(imgFile, 'binary');
-        
-        // res.sendFile(path.join(__dirname,`../resources/photos/${randomInt}.png`))
-        // res.send(JSON.stringify(imagesUrl[randomInt]));
+        res.end(imgFile, 'binary');       
     }catch(exception){
         console.log(exception);
         res.sendStatus(501);

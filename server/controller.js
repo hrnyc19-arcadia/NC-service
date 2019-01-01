@@ -1,5 +1,5 @@
 
-const db = require('./db/config');
+require('./db/config').connect
 const Review = require('./db/schema');
 
 
@@ -7,7 +7,7 @@ const Review = require('./db/schema');
 module.exports.getReviews=function(listing_id,callback){
     console.log('getReviews called, value:',listing_id);
     
-    db.connect;
+    
     
     Review.find({'listing_id':listing_id,/*flagged:false*/},null,{sort:'-date'},((err, docs)=>{
     if(err) callback(err)
@@ -19,7 +19,7 @@ module.exports.getReviews=function(listing_id,callback){
 }
 
 module.exports.storeAMockupReview=function(JSONObj,callback){
-db.connect;
+
 console.log(JSONObj);
 
 let newReview = new Review({ 

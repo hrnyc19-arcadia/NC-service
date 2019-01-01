@@ -1,10 +1,10 @@
 module.exports={
-Youtube={
+youtube:{
   host:'https://api.github.com',
  OAUTH_TOKEN: 'https://api.github.com/?access_token=OAUTH-TOKEN',
   API_ACCESS:'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'
 },
-github={
+github:{
   GITHUB_APP_IDENTIFIER:'Iv1.0894d58cb5ea3ac4',
   GITHUB_WEBHOOK_SECRET:'93574c069b1700ce756fcb7dd96cba7e40c3eada',
   GITHUB_PRIVATE_KEY:`MIIEpQIBAAKCAQEAzbyT54ZFi9OdIjvn7XEqPZnBQ4Mtaio3iNqIlx95I43DMu6b
@@ -35,10 +35,15 @@ hweugGodkNFzr1feOijmp2XDkJWQLjprykpuSNQHKKO8C58NNoma7brdCi4bzK2Q
   github_app_name: 'fullstackReview',
   homepage_url: 'https://github.com/NCorreia100/hrnyc19-fullstack-review'
 },
-local={
+local:{
     WEBAPI_PORT: 3004,
     DB_PORT: 27016,
     DB_URI :'mongodb://localhost:27016/flairbnb_reviews'
-  } 
+  }, 
+MLABURL:'mongodb://user$:#33vs33XQ@ds147344.mlab.com:47344/flairbnb_reviews'
 
 }
+
+/*
+process.env.MLABURL
+*/

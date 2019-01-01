@@ -10,33 +10,29 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
-  // plugins: [
-    
+  // plugins: [    
   //     new webpack.ProvidePlugin({
   //       $: 'jquery',
   //       jQuery: 'jquery',
   //       'window.jQuery': 'jquery',
-  //       Popper: ['popper.js', 'default'],            
-        
-  //     })
-    
+  //       Popper: ['popper.js', 'default'],          
+  //     })    
   // ],
-  module : {
-    rules : [
+  module: {
+    rules: [
       {
-        test : /\.jsx?/,
-        include : SRC_DIR,        
-        loader : 'babel-loader',      
+        test: /\.jsx?/,
+        include: SRC_DIR,
+        loader: 'babel-loader',
         query: {
           presets: ['@babel/preset-react', '@babel/preset-env']
-        }       
+        }
       },
       {
         test: /\.css$/,
-       loader: ['style-loader', 'css-loader']
+        loader: ['style-loader', 'css-loader']
       }
-      
+
     ]
-  },
-  // target: 'node'
+  }
 };
