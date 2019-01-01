@@ -17,6 +17,7 @@ class Review extends React.Component{
         }
     }
     componentDidMount(){
+        
        let {id,username,message,date}= this.props.review;
         this.setState({
                 reviewId: id,
@@ -24,15 +25,17 @@ class Review extends React.Component{
                 message: message,
                 photoSrc:{}
 
-        });
-        if(message.length>290) this.setState({showAll:false});
-        let unformattedDate = new Date(date);
-        let month = ['January','February','March','April','May','June','July','August','September','October','November','December'][unformattedDate.getMonth()];
-        this.setState({date:`${month}, ${unformattedDate.getFullYear()}`})       
-        this.props.getUserPhoto(id,  blob=>{
-            console.log('blob: ',blob)
-            this.setState({photoSrc: blob})                 
-        })
+            },()=>{
+                  if(message.length>290) this.setState({showAll:false});
+            })
+            let unformattedDate = new Date(date);
+            let month = ['January','February','March','April','May','June','July','August','September','October','November','December'][unformattedDate.getMonth()];
+            this.setState({date:`${month} ${unformattedDate.getFullYear()}`})       
+            this.props.getUserPhoto(id,  blob=>{
+                console.log('blob: ',blob)
+                this.setState({photoSrc: blob})                         
+            })
+    
 
     }       
     render(){  
@@ -47,11 +50,12 @@ class Review extends React.Component{
            <a ref='#' className="flag">
            <Glyphicon glyph="flag" />
            </a>
-            <strong>{username}</strong> 
+           <br/>
+            <span className="user"><strong>   {username}</strong></span> 
              <br/>
-             {date}
+             <span className="user">   {date}</span>
              </div>          
-            <br/>            
+            <br/> <br/>           
                {this.state.showAll?  message : message.substring(0,280)+"..."}
                {!this.state.showAll? (<a href="#"  onClick={()=>this.setState({showAll:true})} >Read more</a>):null}
             

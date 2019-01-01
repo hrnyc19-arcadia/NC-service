@@ -1,4 +1,5 @@
 *.log
 node_modules
-env_var.json
+env_var.js
 client/dist/bundle.js
+resources/photos

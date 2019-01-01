@@ -1,9 +1,9 @@
 import React from 'react';
-import { Table, Glyphicon } from 'react-bootstrap';
+import { Table, Glyphicon,Panel } from 'react-bootstrap';
 
 const getStars = function (rating) {
     return (
-        <div className="stars" style={{ width: `${rating * 85 / 5}px`, height: '20px', overflow: 'hidden' }}>
+        <div className="stars" style={{ width: `${rating * 90 / 5}px`, height: '20px', overflow: 'hidden' }}>
             <Glyphicon glyph="star" />
             <Glyphicon glyph="star" />
             <Glyphicon glyph="star" />
@@ -21,10 +21,13 @@ const Highlights = function (props) {
     let { accuracy, communication, cleanliness, location, checkin, value } = props.ratings;
     return (
         <div>
-            <Table stripped responsive className="tblhighlights">
-                <td>{props.reviewsQty} <strorng>Reviews </strorng></td><td>{getStars(score)}</td>
+            <Panel className="pnlHighlights">
+            <Table  className="tblHighlights">
+                <td>{props.reviewsQty} Reviews </td><td style={{position:"left"}}>{getStars(score*1.15)} </td>
             </Table>
-            <Table stripped responsive className="tblRatings">
+            </Panel>
+            <Panel className="tblRatings">
+            <Table stripped responsive>
                 <tr>
                     <td>Accuracy</td><td>{getStars(accuracy)}</td>
                     <td>Location</td><td>{getStars(location)}</td>
@@ -38,6 +41,7 @@ const Highlights = function (props) {
                     <td>Value</td><td>{getStars(value)}</td>
                 </tr>
             </Table>
+            </Panel>
         </div>
     )
 
