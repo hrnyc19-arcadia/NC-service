@@ -5,9 +5,8 @@ const controller = require('./controller');
 const fs = require('fs');
 const {API_PORT} = require('../env_var')
 
-let port=null;
-if(process.env.HEROKU) port = process.env.HEROKU;
-else port = API_PORT;
+let port = process.env.PORT ||3004;
+
 
 
 app.use(express.static(path.join(__dirname,'../client/dist')));
