@@ -11,7 +11,10 @@ let port = process.env.PORT ||3004;
 
 app.use(express.static(path.join(__dirname,'../client/dist')));
 
-app.use(res.header("Access-Control-Allow-Origin", "*"));
+app.use((req,res,next)=>{
+    req.header("Access-Control-Allow-Origin", "*");
+    next();
+});
 
 
 app.get('/reviews', (req, res) =>{
