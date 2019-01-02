@@ -2,7 +2,7 @@ import React from 'react';
 import Review from './review.jsx';
 import { Panel } from 'react-bootstrap';
 import Pagination from "react-js-pagination";
-// require("bootstrap/less/bootstrap.less");
+//  import "bootstrap/less/bootstrap.less";
 
 class ReviewList extends React.Component {
     constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReviewList from './components/reviewList.jsx';
-import Highlights from './components/highlights.jsx';
+// import Highlights from './components/highlights.jsx';
 
 
 class App extends React.Component {
