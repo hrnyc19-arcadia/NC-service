@@ -31,7 +31,8 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "start": "webpack & nodemon server/index.js & node server/index.js",	
+    "start": "node server/index.js",	
+	"heroku-postbuild": "webpack -p && nodemon server/index.js",
     "build": "react-scripts build",
     "test": "jest resources/test.js --notify",
     "eject": "react-scripts eject",        
