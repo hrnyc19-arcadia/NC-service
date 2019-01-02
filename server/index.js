@@ -45,7 +45,7 @@ app.get('/user/photo', (req, res) => {
     }   
 })
 
-app.get('/*',(req,res)=>res.sendStatus(403));
+app.get('/*',(req,res)=>res.sendStatus(402));
 
 
 app.listen(port,()=>console.log('listening on port ',port));
