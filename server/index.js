@@ -21,7 +21,7 @@ app.get('/reviews', (req, res) =>{
     controller.getReviews(parseInt(req.query.listing_id),(err,data)=>{
          if(err) {
             console.log(err);
-            res.sendStatus(402);
+            res.sendStatus(404);
         } else{
             res.send(data);
         }

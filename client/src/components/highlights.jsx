@@ -3,7 +3,7 @@ import { Table, Glyphicon,Panel } from 'react-bootstrap';
 
 const getStars = function (rating) {
     return (
-        <div className="stars" style={{ width: `${rating * 90 / 5}px`, height: '20px', overflow: 'hidden' }}>
+        <div className="stars" style={{ width: `${rating * 96 / 5}px`, height: '20px', overflow: 'hidden' }}>
             <Glyphicon glyph="star" />
             <Glyphicon glyph="star" />
             <Glyphicon glyph="star" />
@@ -23,7 +23,7 @@ const Highlights = function (props) {
         <div>
             <Panel className="pnlHighlights">
             <Table  className="tblHighlights">
-                <td>{props.reviewsQty} Reviews </td><td style={{position:"left"}}>{getStars(score*1.15)} </td>
+                <td>{props.reviewsQty} Reviews </td><td style={{position:"left"}}>{getStars(score*1.30)} </td>
             </Table>
             </Panel>
             <Panel className="tblRatings">

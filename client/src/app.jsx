@@ -33,7 +33,16 @@ class App extends React.Component {
             .catch(unhandledException => console.log('error fetching photo:\n', unhandledException));
     }
     componentDidMount() {
-        fetch(`/reviews?listing_id=${this.state.listingId || 87}`, {
+        let listingId;
+        try{
+        listingId=parseInt(window.location.href.split('?')[1]);
+        }catch(unacceptedURLException){
+            console.log('unacceptedURLException: param not accepted: ',parseInt(window.location.href.split('?')[1]));   
+            listingId=0;         
+        }
+        
+        console.log('listing requested: ',listingId)
+        fetch(`/reviews?listing_id=${listingId}`, {
             method: 'GET',
             mode: 'cors',
             headers: { 'content-type': 'application/json' }
@@ -51,10 +60,12 @@ class App extends React.Component {
                         location: list.reduce((acc, cur) => acc + cur.ratings.location, 0) / list.length,
                         checkin: list.reduce((acc, cur) => acc + cur.ratings.checkin, 0) / list.length,
                         value: list.reduce((acc, cur) => acc + cur.ratings.value, 0) / list.length,
-                    }
-                })
+                    }                
+                })            
             })
             .catch(unhandledException => console.log('error fetching reviews: \n', unhandledException));
+           
+            
     }
     render() {
         let { reviews, reviewsQty, ratings } = this.state;
