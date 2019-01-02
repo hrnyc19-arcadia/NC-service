@@ -32,6 +32,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
+	"heroku-postbuild": "webpack",
     "build": "react-scripts build",
     "test": "jest resources/test.js --notify",
     "eject": "react-scripts eject",        
