@@ -31,12 +31,13 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "start": "webpack & nodemon & node server/index.js",	
+    "start": "webpack & nodemon server/index.js & node server/index.js",	
     "build": "react-scripts build",
     "test": "jest resources/test.js --notify",
     "eject": "react-scripts eject",        
     "webpack": "webpack -d --watch",
-    "mockdata": "node server/FSdataImport.js"
+    "mockdata": "node server/FSdataImport.js",
+	"nodemon": "nodemon server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
